@@ -2,7 +2,7 @@ package hercerm.net;
 
 import java.io.Serializable;
 
-public class Message implements Serializable {
+public final class Message implements Serializable {
 
     private final String sender;
     private final String message;
