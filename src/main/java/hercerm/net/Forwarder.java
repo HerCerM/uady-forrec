@@ -6,9 +6,9 @@ import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public final class Forwarder {
+final class Forwarder {
 
-    public void sendMessage(Message message, String host, int port) {
+    void sendMessage(Message message, String host, int port) {
         deliver(marshal(message), host, port);
     }
 

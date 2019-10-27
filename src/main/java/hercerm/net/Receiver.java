@@ -7,15 +7,15 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public final class Receiver {
+final class Receiver {
 
     private final int port;
 
-    public Receiver(int port) {
+    Receiver(int port) {
         this.port = port;
     }
 
-    public Message receiveMessage() {
+    Message receiveMessage() {
         return unmarshal(receive());
     }
 
