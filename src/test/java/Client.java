@@ -4,13 +4,12 @@ import hercerm.net.Peer;
 public class Client extends Peer {
 
     public static void main(String[] args) {
-        Peer client = new Client(36);
-        client.sendMessage(new Message("PC-HCM", "Hello World"),
-                "localhost", 80);
+        Peer client = new Client("Client");
+        client.sendMessage( "Hello World", "Server");
     }
 
-    public Client(int port) {
-        super(port);
+    public Client(String peerAlias) {
+        super(peerAlias);
     }
 
     @Override
