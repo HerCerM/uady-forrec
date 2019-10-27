@@ -7,7 +7,7 @@ public final class Message implements Serializable {
     private final String sender;
     private final String message;
 
-    public Message(String sender, String message) {
+    Message(String sender, String message) {
         this.sender = sender;
         this.message = message;
     }

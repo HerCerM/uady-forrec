@@ -2,14 +2,23 @@ package hercerm.net;
 
 import org.apache.commons.lang3.SerializationUtils;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Map;
 
 final class Forwarder {
 
-    void sendMessage(Message message, String host, int port) {
-        deliver(marshal(message), host, port);
+    private Map<String, Entry> registry;
+
+    Forwarder(Map<String, Entry> registry) {
+        this.registry = registry;
+    }
+
+    void sendMessage(Message message, String peerAlias) {
+        Entry entry = registry.get(peerAlias);
+        deliver(marshal(message), entry.getHost(), entry.getPort());
     }
 
     private void deliver(byte[] message, String host, int port) {

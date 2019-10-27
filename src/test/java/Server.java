@@ -4,11 +4,11 @@ import hercerm.net.Peer;
 public class Server extends Peer {
 
     public static void main(String[] args) {
-        Peer server = new Server(80);
+        Peer server = new Server("Server");
     }
 
-    public Server(int port) {
-        super(port);
+    public Server(String alias) {
+        super(alias);
     }
 
     @Override
