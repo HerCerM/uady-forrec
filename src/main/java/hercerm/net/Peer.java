@@ -3,9 +3,7 @@ package hercerm.net;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -40,21 +38,17 @@ public abstract class Peer {
     }
 
     private Map<String, Entry> buildRegistry() {
-
         Map<String, Entry> registry = new HashMap<>();
-        try {
-            File peersFile = new File(Forwarder.class.getResource("/peers.json").toURI());
 
-            Gson gson = new Gson();
-            JsonObject[] entries = gson.fromJson(new FileReader(peersFile), JsonObject[].class);
+        InputStream peersInputStream = Forwarder.class.getResourceAsStream("/peers.json");
 
-            Arrays.stream(entries).forEach((entry) -> {
-                registry.put(entry.get("alias").getAsString(),
-                        new Entry(entry.get("host").getAsString(), entry.get("port").getAsInt()));
-            });
-        } catch (FileNotFoundException | URISyntaxException e) {
-            e.printStackTrace();
-        }
+        Gson gson = new Gson();
+        JsonObject[] entries = gson.fromJson(new InputStreamReader(peersInputStream), JsonObject[].class);
+
+        Arrays.stream(entries).forEach((entry) -> {
+            registry.put(entry.get("alias").getAsString(),
+                    new Entry(entry.get("host").getAsString(), entry.get("port").getAsInt()));
+        });
 
         return registry;
     }
