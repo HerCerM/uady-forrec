@@ -1,4 +1,4 @@
-# Forrec
+# Forrec (UNMAINTAINED)
 
 Forrec is a forwarder-receiver mini-framework implemented with sockets. It was developed as part of an assignment for my college Software Architecture course.
 
