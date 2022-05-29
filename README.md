@@ -1,4 +1,4 @@
-# Forrec (UNMAINTAINED)
+# Forrec
 
 Forrec is a forwarder-receiver mini-framework implemented with sockets. It was developed as part of an assignment for my college Software Architecture course.
 
@@ -19,7 +19,3 @@ After installation, you can use the framework in another Maven project by adding
     <version>1.0-SNAPSHOT</version>
 </dependency>
 ```
-
-## Example project built with Forrec
-
-Voting application: <https://www.youtube.com/watch?v=9jyh9aSZmew>
